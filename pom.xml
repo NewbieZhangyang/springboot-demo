@@ -14,11 +14,15 @@
     <name>springboot-demo</name>
     <description>Demo project for Spring Boot</description>
 
+    <!-- 默认打包成war文件 -->
+    <packaging>war</packaging>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
+        <!-- web支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -30,16 +34,23 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- 增加 -->
-        <!-- Spring Boot 提供了热部署的方式，当发现任何类发生了改变，就会通过 JVM 类加载的方式，加载最新的类到虚拟机中-->
+        <!-- jsp页面使用jstl标签-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <!-- 用于编译jsp-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope><!--仅在编译和测试时,使用该依赖-->
+        </dependency>
+
+        <!-- 增加：Spring Boot 提供了热部署的方式-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional><!-- 这个需要为 true 热部署才有效 -->
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
     </dependencies>
 
